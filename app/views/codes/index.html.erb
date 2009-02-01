@@ -1,0 +1,7 @@
+<h1>Codez</h1>
+
+<% if @codes %>
+  <ul>
+    <%= render :partial => 'code', :collection => @codes %>
+  </ul>
+<% end %>

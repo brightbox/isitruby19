@@ -1,0 +1,10 @@
+<h1>No Codez!</h1>
+
+<% if @codes.size > 0 %>
+  <p>Perhaps you wanted one of these?</p>
+  <ul>
+    <%= render :partial => 'code', :collection => @codes %>
+  </ul>
+<% else %>
+  <p>Sorry, there's no code</p>
+<% end -%>
