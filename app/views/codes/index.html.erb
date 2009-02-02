@@ -1,7 +1,11 @@
 <h1>Codez</h1>
 
+<%= will_paginate @codes %>
+
 <% if @codes %>
   <ul>
     <%= render :partial => 'code', :collection => @codes %>
   </ul>
 <% end %>
+
+<%= will_paginate @codes %>

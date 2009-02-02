@@ -15,9 +15,8 @@ class Code < ActiveRecord::Base
   def self.new_from_gem_spec(spec)
     f = find_or_initialize_by_name(spec.name.to_s)
     if f.new_record?
-      f.attributes = {:description => spec.description, :homepage => spec.homepage, 
-                      :rubyforge => spec.rubyforge_project}
-      f.type = "gem"
+      f.attributes = {:description => spec.description, :homepage => spec.homepage, :rubyforge => spec.rubyforge_project}
+      f.code_type = "gem"
       f.save!
       spec.authors.each do |author|
         a = Author.find_or_create_by_name(author)
@@ -31,7 +30,7 @@ class Code < ActiveRecord::Base
     logger.info("Could not create code from gem spec\n #{spec.inspect}")
   end
   
-  private
+private
   
   def set_slug_name
     self.slug_name = slug_name_from_name || self.rubyforge

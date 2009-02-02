@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090201153650) do
+ActiveRecord::Schema.define(:version => 20090202123742) do
 
   create_table "authors", :force => true do |t|
     t.string   "name"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(:version => 20090201153650) do
     t.string   "homepage"
     t.string   "rubyforge"
     t.string   "github"
-    t.string   "type"
+    t.string   "code_type"
     t.decimal  "latest_version"
     t.datetime "created_at"
     t.datetime "updated_at"
