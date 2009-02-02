@@ -6,5 +6,7 @@
     <li> <%= form.label :platform_id %> <br/> <%= form.collection_select :platform_id, Platform.all, :id, :name %> </li>
     <li> <%= form.label :name %> <br/> <%= form.text_field :name %> </li>
     <li> <%= form.label :url %> <br/> <%= form.text_field :url %> </li>
+    <li> <%= get_captcha :rcc_pub => RECAPTCHA_PUBLIC_KEY, :rcc_priv => RECAPTCHA_PRIVATE_KEY, :options => { :theme => 'white' }  %> </li>
     <li> <%= submit_tag 'Submit &rarr;', :disable_with => 'submitting...' %></li>
+  </ul>
 <% end %>

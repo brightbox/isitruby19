@@ -2,7 +2,8 @@ class CommentsController < ApplicationController
   def create
     @code = Code.find params[:code_id]
     @comment = @code.build_comment params[:comment]
-    @comment.save!
+    raise ActiveRecord::RecordInvalid.new(@comment) unless validate_recap(params, @comment.errors, :rcc_pub => RECAPTCHA_PUBLIC_KEY, :rcc_priv => RECAPTCHA_PRIVATE_KEY)
+    @comment.save!    
     flash[:notice] = 'Thanks for your comment'
     redirect_to code_by_slug_path(@code.slug_name)
     
