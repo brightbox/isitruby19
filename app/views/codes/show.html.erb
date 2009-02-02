@@ -1,1 +1,13 @@
-<h1><%= @code.name %></h1>
+<h1 class="code-title"><a href="<%= @code.homepage %>"><%= h @code.name %></a></h1>
+
+<p>
+  <%= large_working_icon_for @code %>
+</p>
+
+<p class="description">
+  <%= h @code.description %>
+</p>
+
+<p class="authors">
+  <%= h @code.author_names %>
+</p>

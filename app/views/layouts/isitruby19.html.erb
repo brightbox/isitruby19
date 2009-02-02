@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title><%= @page_title %> (powered by Brightbox)</title>
+  <!-- Meta Tags -->
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8" />
+  <meta name="robots" content="index, follow" />
+  <meta name="description" content="Is it Ruby 1.9?  Listing Ruby Gems and showing their Ruby 1.9 compatibility" />
+  <meta name="keywords" content="Ruby Gems 1.9 Compatibility" />
+  <meta name="author" content="Brightbox Systems Ltd" />
+  <!-- Favicon 
+  <link rel="shortcut icon" href="" />
+  -->
+  <!-- CSS -->
+  <link rel="stylesheet" href="/stylesheets/isitruby19.css" media="screen,projection" type="text/css" />
+  <!-- RSS 
+  <link rel="alternate" href="" title="RSS Feed" type="application/rss+xml" /> 
+  -->
+  <!-- JavaScript -->
+  <%= javascript_include_tag :defaults %>
+</head>
+<body>
+  <div id="header"> 
+    <div id="logo">
+      <h1><%= link_to 'Is it Ruby 1.9?', root_path %> </h1>
+    </div>
+    <% unless flash[:notice].blank? %>
+      <div id="flash_notice"> <%= flash[:notice] %> </div>
+    <% end %>
+    &nbsp; 
+    <% form_tag codes_path, :method => :get, :id => 'search-form' do %>
+      <%= text_field_tag :search, params[:search] %> <%= submit_tag 'Search &rarr;', :disable_with => 'searching....' %>
+    <% end %>
+  </div>
+  <%= yield %>
+  <div id="footer">
+  
+  </div>
+</body>

@@ -7,10 +7,21 @@ class Code < ActiveRecord::Base
   
   has_many :authorships
   has_many :authors, :through => :authorships
+  has_many :comments, :dependent => :destroy
+  has_many :working_comments, :class_name => 'Comment', :conditions => { :works_for_me => true }
+  has_many :failure_comments, :class_name => 'Comment', :conditions => { :works_for_me => false }
   
   acts_as_ferret :fields => [:name, :description, :homepage, :rubyforge, :github, :slug_name]
   
   before_validation_on_create :set_slug_name
+  
+  def works?
+    has_no_failure_comments? && has_working_comments?
+  end
+  
+  def author_names
+    authors.collect { | a | a.name }.to_sentence
+  end
   
   def self.new_from_gem_spec(spec)
     f = find_or_initialize_by_name(spec.name.to_s)

@@ -1,10 +1,10 @@
 class CodesController < ApplicationController
   
   def index
-    unless params[:search]
-      @codes = Code.paginate(:per_page => 30, :page => params[:page])
+    if params[:search].blank?
+      @codes = Code.paginate(:per_page => 30, :page => params[:page], :include => [:working_comments, :failure_comments], :order => 'name')
     else
-      @codes = Code.find_with_ferret(["*", params[:search], "*"].to_s)
+      @codes = Code.find_with_ferret(["*", params[:search], "*"].to_s, { :per_page => 30, :page => params[:page] }, { :include => [:working_comments, :failure_comments], :order => 'name' })
     end
   end
   
@@ -14,26 +14,6 @@ class CodesController < ApplicationController
   rescue ActiveRecord::RecordNotFound
     @codes = Code.find_with_ferret(["*", params[:slug_name], "*"].to_s)
     render :action => "no_show", :status => :not_found 
-  end
-  
-  def new
-    
-  end
-  
-  def create
-    
-  end
-  
-  def edit
-    
-  end
-  
-  def update
-    
-  end
-  
-  def destroy
-    
   end
   
 end

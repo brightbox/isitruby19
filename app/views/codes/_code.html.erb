@@ -1,1 +1,5 @@
-<li><%= link_to h(code.slug_name), code_path(code.slug_name) %></li>
+<% content_tag_for :li, code do %>
+  <%= link_to h(code.slug_name), code_by_slug_path(code.slug_name) %> 
+  <%= working_icon_for code %>
+<% end %>
+
