@@ -1,0 +1,6 @@
+<% div_for working_comment, :class => 'working' do %>
+  <p class="status">Reported as working on <%= working_comment.platform %> by <%= name_link_for working_comment %> on <%= working_comment.created_at.to_s %></p>
+  <% unless working_comment.body.blank? %>
+    <p class="comment"> <%= h working_comment.body %> </p>
+  <% end %>
+<% end %>

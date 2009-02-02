@@ -1,0 +1,6 @@
+<% div_for failed_comment, :class => 'failed' do %>
+  <p class="status">Reported as failing on <%= failed_comment.platform %> by <%= name_link_for failed_comment %></p>
+  <% unless failed_comment.body.blank? %>
+    <p class="comment"> <%= h failed_comment.body %> </p>
+  <% end %>
+<% end %>

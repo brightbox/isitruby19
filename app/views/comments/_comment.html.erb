@@ -1,0 +1,5 @@
+<% if comment.works_for_me? %>
+  <%= render :partial => 'comments/working_comment', :object => comment %>
+<% else %>
+  <%= render :partial => 'comments/failed_comment', :object => comment %>
+<% end %>

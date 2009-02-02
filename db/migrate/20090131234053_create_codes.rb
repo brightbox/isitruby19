@@ -1,7 +1,7 @@
 class CreateCodes < ActiveRecord::Migration
   def self.up
     create_table :codes do |t|
-      t.string :name, :description, :homepage, :rubyforge, :github, :type
+      t.string :name, :description, :homepage, :rubyforge, :github, :type, :slug_name
       t.decimal :latest_version
       t.timestamps
     end

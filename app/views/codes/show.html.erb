@@ -11,3 +11,12 @@
 <p class="authors">
   <%= h @code.author_names %>
 </p>
+
+<p><%= link_to_function 'add a comment &rarr;', visual_effect(:toggle_blind, 'new-comment-form') %> </p>
+<div id="new-comment-form" style="display:none">
+  <%= render :partial => 'comments/new', :locals => { :code => @code } %>
+</div>
+
+
+<%= render :partial => 'comments/comment', :collection => @code.comments %>
+

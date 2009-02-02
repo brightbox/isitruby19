@@ -29,6 +29,9 @@
     <% unless flash[:notice].blank? %>
       <div id="flash_notice"> <%= flash[:notice] %> </div>
     <% end %>
+    <% unless flash[:error].blank? %>
+      <div id="flash_error"> <%= flash[:error] %> </div>
+    <% end %>
     &nbsp; 
     <% form_tag codes_path, :method => :get, :id => 'search-form' do %>
       <%= text_field_tag :search, params[:search] %> <%= submit_tag 'Search &rarr;', :disable_with => 'searching....' %>

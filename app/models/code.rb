@@ -1,19 +1,9 @@
 class Code < ActiveRecord::Base
-  
-  named_scope :last_thirty_active, :order => "updated_at DESC", :limit => 30
-  
-  validates_uniqueness_of :name, :slug_name
-  validates_presence_of :name, :slug_name
-  
   has_many :authorships
   has_many :authors, :through => :authorships
-  has_many :comments, :dependent => :destroy
+  has_many :comments, :dependent => :destroy, :order => 'created_at desc'
   has_many :working_comments, :class_name => 'Comment', :conditions => { :works_for_me => true }
   has_many :failure_comments, :class_name => 'Comment', :conditions => { :works_for_me => false }
-  
-  acts_as_ferret :fields => [:name, :description, :homepage, :rubyforge, :github, :slug_name]
-  
-  before_validation_on_create :set_slug_name
   
   def works?
     has_no_failure_comments? && has_working_comments?
@@ -42,6 +32,13 @@ class Code < ActiveRecord::Base
   end
   
 private
+  
+  validates_uniqueness_of :name, :slug_name
+  validates_presence_of :name, :slug_name
+  
+  before_validation_on_create :set_slug_name
+  
+  acts_as_ferret :fields => [:name, :description, :homepage, :rubyforge, :github, :slug_name]
   
   def set_slug_name
     self.slug_name = slug_name_from_name || self.rubyforge

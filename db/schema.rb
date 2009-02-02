@@ -9,13 +9,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090202123742) do
+ActiveRecord::Schema.define(:version => 20090202155040) do
 
   create_table "authors", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "authors", ["name"], :name => "index_authors_on_name"
 
   create_table "authorships", :force => true do |t|
     t.integer  "author_id"
@@ -24,6 +26,9 @@ ActiveRecord::Schema.define(:version => 20090202123742) do
     t.datetime "updated_at"
   end
 
+  add_index "authorships", ["author_id"], :name => "index_authorships_on_author_id"
+  add_index "authorships", ["code_id"], :name => "index_authorships_on_code_id"
+
   create_table "codes", :force => true do |t|
     t.string   "name"
     t.string   "description"
@@ -31,36 +36,35 @@ ActiveRecord::Schema.define(:version => 20090202123742) do
     t.string   "rubyforge"
     t.string   "github"
     t.string   "code_type"
+    t.string   "slug_name"
     t.decimal  "latest_version"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "slug_name"
   end
+
+  add_index "codes", ["name"], :name => "index_codes_on_name"
+  add_index "codes", ["updated_at"], :name => "index_codes_on_updated_at"
 
   create_table "comments", :force => true do |t|
     t.integer  "code_id"
-    t.integer  "user_id"
+    t.integer  "platform_id"
     t.text     "body"
     t.boolean  "works_for_me"
-    t.string   "platform"
+    t.string   "name"
+    t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "users", :force => true do |t|
+  add_index "comments", ["code_id"], :name => "index_comments_on_code_id"
+  add_index "comments", ["created_at"], :name => "index_comments_on_created_at"
+
+  create_table "platforms", :force => true do |t|
     t.string   "name"
-    t.string   "email"
-    t.string   "homepage"
-    t.string   "login",                              :null => false
-    t.string   "crypted_password",                   :null => false
-    t.string   "password_salt",                      :null => false
-    t.string   "persistence_token",                  :null => false
-    t.string   "single_access_token",                :null => false
-    t.string   "perishable_token",                   :null => false
-    t.integer  "login_count",         :default => 0, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "is_admin"
   end
+
+  add_index "platforms", ["name"], :name => "index_platforms_on_name"
 
 end

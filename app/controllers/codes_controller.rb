@@ -10,6 +10,7 @@ class CodesController < ApplicationController
   
   def show
     @code = Code.find_by_slug_name!(params[:slug_name])
+    @comment = Comment.new
 
   rescue ActiveRecord::RecordNotFound
     @codes = Code.find_with_ferret(["*", params[:slug_name], "*"].to_s)
