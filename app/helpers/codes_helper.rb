@@ -10,4 +10,8 @@ module CodesHelper
   def large_working_icon_for code
     working_icon_for code # TODO: bigger icons
   end
+  
+  def show_comment_form_for comment
+    return 'style="display:none"' if comment.nil? || comment.errors.size == 0
+  end
 end

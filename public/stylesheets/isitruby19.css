@@ -20,7 +20,7 @@ p,em{
 
 body {
   margin: 0;
-  padding: 0;
+  padding: 8pt;
   font-size: 8pt;
   background: #FFF;
   font-family: "Helvetica Neue", Helvetica, Verdana, Arial, sans-serif;
@@ -41,7 +41,7 @@ blockquote  {
 a img, iframe { border: none; }
 
 a, a:link, a:visited, a:hover, a:active {
-  font-size: 8pt;
+
 }
 a:focus{
   outline: none;

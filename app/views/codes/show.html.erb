@@ -13,7 +13,7 @@
 </p>
 
 <p><%= link_to_function 'add a comment &rarr;', visual_effect(:toggle_blind, 'new-comment-form') %> </p>
-<div id="new-comment-form" style="display:none">
+<div id="new-comment-form" <%= show_comment_form_for(@comment) %>>
   <%= render :partial => 'comments/new', :locals => { :code => @code } %>
 </div>
 
