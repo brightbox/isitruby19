@@ -1,6 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
 
-  map.root :controller => "codes", :action => "index"
+  map.root :controller => "home", :action => "show"
   
   map.resources :codes, :shallow => true do |code|
     code.resources :comments

@@ -1,0 +1,23 @@
+<div id="search">
+  <%= render :partial => 'codes/search' %>
+</div>
+
+<div id="latest-feedback">
+  <h1>Latest Feedback</h1>
+  <%= render :partial => 'comments/comment', :collection => @latest_feedback %>
+</div>
+
+<div id="popular-gems">
+  <h1>Popular</h1>
+  <%= render :partial => 'codes/code', :collection => @popular %>
+</div>
+
+<div id="help-us-out">
+  <h1>Help us out</h1>
+  <%= render :partial => 'codes/code', :collection => @unpopular %>
+</div>
+
+<div id="compatibility">
+  <h1>Compatibility</h1>
+  <%= @compatibility %>%
+</div>

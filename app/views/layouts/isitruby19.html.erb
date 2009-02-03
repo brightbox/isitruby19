@@ -32,10 +32,6 @@
     <% unless flash[:error].blank? %>
       <div id="flash_error"> <%= flash[:error] %> </div>
     <% end %>
-    &nbsp; 
-    <% form_tag codes_path, :method => :get, :id => 'search-form' do %>
-      <%= text_field_tag :search, params[:search] %> <%= submit_tag 'Search &rarr;', :disable_with => 'searching....' %>
-    <% end %>
   </div>
   <%= yield %>
   <div id="footer">
