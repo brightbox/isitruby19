@@ -1,0 +1,48 @@
+body {
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	background: #163457 url("/images/bg/body_bg.png") repeat-x top center;
+	color: white;
+}
+
+#wrapper {
+	background: transparent url("/images/bg/wrapper_bg.png") no-repeat center top;
+	width: 960px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+#header {
+	background: green;
+	padding-top: 20px;
+	height: 170px;
+}
+
+
+#logo {
+	width: 462px;
+	height: 117px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#logo h1 a {
+	display: block;
+	width: 462px;
+	height: 117px;	
+	background: transparent url("/images/misc/logo.png") no-repeat left top;
+	text-indent: -1000px;
+	overflow: hidden;
+}
+
+#search {
+	background-color: #182945;
+	-moz-border-radius: 6px; /* this works only in camino/firefox */
+	-webkit-border-radius: 6px; /* this is just for Safari */
+	margin-bottom: 30px;
+	padding: 20px;
+}
+
+
