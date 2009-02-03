@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090202155040) do
+ActiveRecord::Schema.define(:version => 20090203113317) do
 
   create_table "authors", :force => true do |t|
     t.string   "name"
@@ -40,8 +40,10 @@ ActiveRecord::Schema.define(:version => 20090202155040) do
     t.decimal  "latest_version"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "comments_count", :default => 0
   end
 
+  add_index "codes", ["comments_count"], :name => "index_codes_on_comments_count"
   add_index "codes", ["name"], :name => "index_codes_on_name"
   add_index "codes", ["updated_at"], :name => "index_codes_on_updated_at"
 

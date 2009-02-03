@@ -4,6 +4,9 @@ class Code < ActiveRecord::Base
   has_many :comments, :dependent => :destroy, :order => 'created_at desc'
   has_many :working_comments, :class_name => 'Comment', :conditions => { :works_for_me => true }
   has_many :failure_comments, :class_name => 'Comment', :conditions => { :works_for_me => false }
+
+  named_scope :popular, :order => 'comments_count desc'
+  named_scope :unpopular, :order => 'comments_count asc'
   
   def works?
     has_no_failure_comments? && has_working_comments?
@@ -29,6 +32,12 @@ class Code < ActiveRecord::Base
     end
   rescue => e
     logger.info("Could not create code from gem spec\n #{spec.inspect}")
+  end
+  
+  def self.compatibility
+    total = Comment.count
+    total = 1 if total == 0
+    Comment.working.size * 100 / total
   end
   
 private
