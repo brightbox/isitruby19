@@ -1,5 +1,6 @@
 class CodesController < ApplicationController
-
+  caches_page :show
+  
   def index
     if params[:s].blank?
       @codes = Code.paginate(:per_page => 30, :page => params[:page], :include => [:working_comments, :failure_comments], :order => 'name')

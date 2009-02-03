@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  cache_sweeper :code_and_comment_sweeper
   def create
     @code = Code.find params[:code_id]
     @comment = @code.build_comment params[:comment]
