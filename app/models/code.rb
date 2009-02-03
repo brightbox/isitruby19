@@ -16,6 +16,10 @@ class Code < ActiveRecord::Base
     authors.collect { | a | a.name }.to_sentence
   end
   
+  def has_homepage_url?
+    self.homepage =~ /^http:/i
+  end
+  
   def self.new_from_gem_spec(spec)
     f = find_or_initialize_by_name(spec.name.to_s)
     if f.new_record?

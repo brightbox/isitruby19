@@ -1,4 +1,12 @@
 module CodesHelper
+  def homepage_link_for code
+    if code.has_homepage_url?
+      "<a href=\"#{code.homepage}\">#{h(code.name)}</a>"
+    else
+      code.name    
+    end
+  end
+  
   def working_icon_for code
     if code.works? 
       image_tag 'icons/tick.gif', :alt => 'All reports show this gem as working'
