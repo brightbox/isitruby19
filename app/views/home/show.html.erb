@@ -6,10 +6,9 @@
 
 <div id="middle" class="column">
   <h2>Popular gems <span class="lighterblue">(most comments)</span></h2>
+	<ul>
   <%= render :partial => 'codes/code', :collection => @popular %>
-
-  <h2>Not-so-popular gems <span class="lighterblue">(least comments)</span></h2>
-  <%= render :partial => 'codes/code', :collection => @unpopular %>
+	</ul>
 
 </div>
 

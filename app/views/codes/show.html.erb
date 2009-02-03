@@ -18,5 +18,5 @@
 </div>
 
 
-<%= render :partial => 'comments/comment', :collection => @code.comments %>
+<%= render :partial => 'comments/comment', :collection => @code.comments, :locals => { :show_quote => true } %>
 

@@ -14,16 +14,16 @@
   <link rel="shortcut icon" href="" />
   -->
 
-  <link href="/stylesheets/styles.css?1233678790" media="screen" rel="stylesheet" type="text/css" />
+  <link href="/stylesheets/styles.css?1233701659" media="screen" rel="stylesheet" type="text/css" />
 
   <!-- RSS 
   <link rel="alternate" href="" title="RSS Feed" type="application/rss+xml" /> 
   -->
-  <script src="/javascripts/prototype.js?1233572751" type="text/javascript"></script>
-<script src="/javascripts/effects.js?1233572751" type="text/javascript"></script>
-<script src="/javascripts/dragdrop.js?1233572751" type="text/javascript"></script>
-<script src="/javascripts/controls.js?1233572751" type="text/javascript"></script>
-<script src="/javascripts/application.js?1233572751" type="text/javascript"></script>
+  <script src="/javascripts/prototype.js?1233593427" type="text/javascript"></script>
+<script src="/javascripts/effects.js?1233593427" type="text/javascript"></script>
+<script src="/javascripts/dragdrop.js?1233593427" type="text/javascript"></script>
+<script src="/javascripts/controls.js?1233593427" type="text/javascript"></script>
+<script src="/javascripts/application.js?1233593427" type="text/javascript"></script>
 </head>
 <body>
 <div id="wrapper">
@@ -32,11 +32,13 @@
       <h1><a href="/">Is it Ruby 1.9?</a> </h1>
     </div>
 
-	<p class="tagline">Community-driven gem compatibility for ruby 1.9</p>
+	<p class="tagline lighterblue">Community-powered gem compatibility for ruby 1.9</p>
 	
-	<div id="search">
+	<div id="search" class="rounded">
 	  <form action="/codes" id="search-form" method="get">
-  <input id="s" name="s" type="text" /> <input name="commit" onclick="if (window.hiddenCommit) { window.hiddenCommit.setAttribute('value', this.value); }else { hiddenCommit = this.cloneNode(false);hiddenCommit.setAttribute('type', 'hidden');this.form.appendChild(hiddenCommit); }this.setAttribute('originalValue', this.value);this.disabled = true;this.value='searching....';result = (this.form.onsubmit ? (this.form.onsubmit() ? this.form.submit() : false) : this.form.submit());if (result == false) { this.value = this.getAttribute('originalValue');this.disabled = false; }return result;" type="submit" value="Search &rarr;" />
+  <input id="s" name="s" type="text" value="gem search" /> <input name="commit" type="submit" value="Search" />
+<span class="lightblue">or</span> <a href="http://localhost:3000/codes">Browse all</a>
+
 </form>
 
 	</div>
@@ -48,148 +50,157 @@
     
 
   	
-<div id="latest-feedback">
-  <h1>Latest Feedback</h1>
-  
-  <div class="comment failed" id="comment_9">
-  <p class="gravatar"> <img class="gravatar" alt="" width="50" height="50" src="http://www.gravatar.com/avatar/afe1e6b75aace67db4b3ac064256b0f1?rating=PG&amp;size=50" /></p>
-  <p class="status">Reported as failing on Mac OSX 10.5 by baz</p>
-  
-    <p class="comment"> poop </p>
-  
+<div id="left" class="column">
+  <h2>Latest Feedback</h2>
+  <div class="comment rounded">
+  <img class="gravatar" alt="" width="50" height="50" src="http://www.gravatar.com/avatar/3f15b82723c56f2f6dd712ae269df567?rating=PG&amp;size=50" />
+  <p class="status">
+	<a href="/rwdziprwdanimatedgifs" class="gem">rwdziprwdanimatedgifs</a>
+	is <span class="works">Working</span><br />
+	for <a href="http://www.reflex.net" rel="nofollow">Jeremy Jarvis</a> <span class="lighterblue">(Ubuntu Hardy)</span><br />
+	
+	</p>
 </div>
-
-
-  <div class="comment failed" id="comment_8">
-  <p class="gravatar"> <img class="gravatar" alt="" width="50" height="50" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?rating=PG&amp;size=50" /></p>
-  <p class="status">Reported as failing on Mac OSX 10.5 by </p>
-  
+<div class="comment rounded">
+  <img class="gravatar" alt="" width="50" height="50" src="http://www.gravatar.com/avatar/5f01846708cd8d474cae677fb20c786e?rating=PG&amp;size=50" />
+  <p class="status">
+	<a href="/poisson" class="gem">poisson</a>
+	is <span class="fails">Failing</span><br />
+	for <span class="white">Caius Durling</span> <span class="lighterblue">(Mac OSX 10.5)</span><br />
+	
+	</p>
 </div>
-
-
-  <div class="comment failed" id="comment_7">
-  <p class="gravatar"> <img class="gravatar" alt="" width="50" height="50" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?rating=PG&amp;size=50" /></p>
-  <p class="status">Reported as failing on Mac OSX 10.5 by </p>
-  
-    <p class="comment"> move main </p>
-  
+<div class="comment rounded">
+  <img class="gravatar" alt="" width="50" height="50" src="http://www.gravatar.com/avatar/47f28b42f7dfe7115b339cbca7e84dd5?rating=PG&amp;size=50" />
+  <p class="status">
+	<a href="/ruby2jar" class="gem">ruby2jar</a>
+	is <span class="works">Working</span><br />
+	for <span class="white">John Leach</span> <span class="lighterblue">(Mac OSX 10.5)</span><br />
+	
+	</p>
 </div>
-
-
-  <div class="comment failed" id="comment_6">
-  <p class="gravatar"> <img class="gravatar" alt="" width="50" height="50" src="http://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?rating=PG&amp;size=50" /></p>
-  <p class="status">Reported as failing on Mac OSX 10.5 by </p>
-  
-    <p class="comment"> sd </p>
-  
+<div class="comment rounded">
+  <img class="gravatar" alt="" width="50" height="50" src="http://www.gravatar.com/avatar/2bd2fd666da8ae621050889fd34b0e32?rating=PG&amp;size=50" />
+  <p class="status">
+	<a href="/ruby2jar" class="gem">ruby2jar</a>
+	is <span class="works">Working</span><br />
+	for <a href="http://www.reflex.net" rel="nofollow">Jeremy Jarvis</a> <span class="lighterblue">(Mac OSX 10.5)</span><br />
+	
+	</p>
 </div>
-
-
-  <div class="comment working" id="comment_5">
-  <p class="gravatar"> <img class="gravatar" alt="" width="50" height="50" src="http://www.gravatar.com/avatar/afe1e6b75aace67db4b3ac064256b0f1?rating=PG&amp;size=50" /></p>
-  <p class="status">Reported as working on Mac OSX 10.5 by baz on 2009-02-03 16:57:39 UTC</p>
-  
-    <p class="comment"> nice </p>
-  
-</div>
-
 
 </div>
 
-<div id="popular-gems">
-  <h1>Popular</h1>
-  <li class="code" id="code_1">
-  <a href="/libarchive">libarchive</a> 
-  
-</li>
+<div id="middle" class="column">
+  <h2>Popular gems <span class="lighterblue">(most comments)</span></h2>
+	<ul>
+  <li class="code" id="code_4182">
+  <a href="/ruby2jar" class="gem">ruby2jar</a> 
 
-<li class="code" id="code_8">
-  <a href="/ruby-xquery">ruby-xquery</a> 
-  
-</li>
+<span class="works">2</span>
 
-<li class="code" id="code_3">
-  <a href="/simplesync">simplesync</a> 
-  <img alt="All reports show this gem as working" src="/images/icons/tick.gif?1233582173" />
-</li>
+	
 
-<li class="code" id="code_6">
-  <a href="/main">main</a> 
-  
-</li>
-
-<li class="code" id="code_4">
-  <a href="/plist">plist</a> 
-  
-</li>
-
-<li class="code" id="code_4187">
-  <a href="/uuid4r">uuid4r</a> 
-  
-</li>
-
-<li class="code" id="code_4186">
-  <a href="/dm-is-revisioned">dm-is-revisioned</a> 
-  
-</li>
-
-<li class="code" id="code_4185">
-  <a href="/clamav">clamav</a> 
-  
 </li>
 
 <li class="code" id="code_4184">
-  <a href="/poisson">poisson</a> 
-  
+  <a href="/poisson" class="gem">poisson</a> 
+
+
+<span class="fails">1</span>
+	
+
+</li>
+
+<li class="code" id="code_4181">
+  <a href="/rwdziprwdanimatedgifs" class="gem">rwdziprwdanimatedgifs</a> 
+
+<span class="works">1</span>
+
+	
+
+</li>
+
+<li class="code" id="code_4187">
+  <a href="/uuid4r" class="gem">uuid4r</a> 
+
+
+
+	
+
+</li>
+
+<li class="code" id="code_4186">
+  <a href="/dm-is-revisioned" class="gem">dm-is-revisioned</a> 
+
+
+
+	
+
+</li>
+
+<li class="code" id="code_4185">
+  <a href="/clamav" class="gem">clamav</a> 
+
+
+
+	
+
 </li>
 
 <li class="code" id="code_4183">
-  <a href="/multipart-post">multipart-post</a> 
-  
+  <a href="/multipart-post" class="gem">multipart-post</a> 
+
+
+
+	
+
 </li>
 
+<li class="code" id="code_4180">
+  <a href="/nmap" class="gem">nmap</a> 
+
+
+
+	
+
+</li>
+
+<li class="code" id="code_4179">
+  <a href="/dynect" class="gem">dynect</a> 
+
+
+
+	
+
+</li>
+
+<li class="code" id="code_4178">
+  <a href="/mathml" class="gem">mathml</a> 
+
+
+
+	
+
+</li>
+
+
+	</ul>
 
 </div>
 
-<div id="help-us-out">
-  <h1>Help us out</h1>
-  <li class="code" id="code_2">
-  <a href="/rcommand">rcommand</a> 
-  
-</li>
-
-<li class="code" id="code_5">
-  <a href="/constructor">constructor</a> 
-  
-</li>
-
-<li class="code" id="code_7">
-  <a href="/dm-tags">dm-tags</a> 
-  
-</li>
-
-<li class="code" id="code_9">
-  <a href="/qualitysmith_extensions">qualitysmith_extensions</a> 
-  
-</li>
-
-<li class="code" id="code_10">
-  <a href="/scxml">scxml</a> 
-  
-</li>
-
-
+<div id="right" class="column">
+  <h2>Good compatibility <span class="lighterblue">(works for most)</span></h2>
 </div>
 
-<div id="compatibility">
-  <h1>Compatibility</h1>
-  44%
-</div>
+<br style="clear:both" />
+
 	</div><!-- main -->
 
 
   <div id="footer">
-  powered by Brightbox
+  <p class="lightblue">powered by <br/>
+	<a href="http://www.brightbox.co.uk"><img src="/images/misc/bb_logo.png" /></a></p>
   </div><!-- footer -->
 
 </div><!-- wrapper -->

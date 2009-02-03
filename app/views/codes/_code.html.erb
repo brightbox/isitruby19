@@ -1,5 +1,9 @@
 <% content_tag_for :li, code do %>
-  <%= link_to h(code.slug_name), code_by_slug_path(code.slug_name) %> 
-  <%= working_icon_for code %>
+  <%= link_to h(code.slug_name), code_by_slug_path(code.slug_name), :class => 'gem' %> 
+
+<%= "<span class=\"works\">#{code.working_comments.length}</span>" unless code.working_comments.empty? %>
+<%= "<span class=\"fails\">#{code.failure_comments.length}</span>" unless code.failure_comments.empty? %>
+	
+
 <% end %>
 

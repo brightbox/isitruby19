@@ -34,6 +34,18 @@ a {
 
 
 
+ul {
+	padding-left: 25px;
+	margin-bottom: 1.5em;
+}
+
+ul li {
+	margin-bottom: 1em;
+	
+}
+
+
+
 #wrapper {
 	background: transparent url("/images/bg/wrapper_bg.png") no-repeat center top;
 	width: 960px;
@@ -49,16 +61,17 @@ a {
 
 
 #logo {
-	width: 462px;
-	height: 117px;
+	width: 391px;
+	height: 100px;
 	margin-left: auto;
 	margin-right: auto;
+	margin-bottom: 15px;
 }
 
 #logo h1 a {
 	display: block;
-	width: 462px;
-	height: 117px;	
+	width: 391px;
+	height: 100px;	
 	background: transparent url("/images/misc/logo.png") no-repeat left top;
 	text-indent: -1000px;
 	overflow: hidden;
@@ -106,6 +119,7 @@ p.tagline {
 	text-align: left;
 	padding-bottom: 20px;
 	width: 960px;
+	min-height: 400px;
 }
 
 div.column {
@@ -135,13 +149,16 @@ p {
 }
 
 .small {
-	font-size: 75%;
+	font-size: 85%;
 }
 
 p.no_margin {
 	margin: 0;
 }
 
+a.gem {
+	font-size: 120%;
+}
 
 .rounded {
 	-moz-border-radius: 6px; /* this works only in camino/firefox */
@@ -150,8 +167,8 @@ p.no_margin {
 
 span.works, span.fails {
 	color: white;
-	padding: 2px 4px;
-	font-size: 11px;
+	padding: 2px 5px;
+	font-size: 10px;
 	text-transform: uppercase;
 	-moz-border-radius: 2px; /* this works only in camino/firefox */
 	-webkit-border-radius: 2px; /* this is just for Safari */
@@ -171,8 +188,9 @@ span.white {
 div.comment {
   color: #95ABC3;
 	background-color: #345983;
-	margin-bottom: 20px;
+	margin-bottom: 12px;
 	padding: 12px 12px;
+	min-height: 55px;
 }
 
 div.comment p {
