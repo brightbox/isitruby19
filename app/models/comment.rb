@@ -4,6 +4,7 @@ class Comment < ActiveRecord::Base
   named_scope :latest, :order => 'created_at desc'
   named_scope :working, :conditions => { :works_for_me => true }
   named_scope :failed, :conditions => { :works_for_me => false }
+  delegate :slug_name, :to => :code
   
 private
   validates_presence_of :code
