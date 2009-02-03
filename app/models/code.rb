@@ -21,8 +21,8 @@ class Code < ActiveRecord::Base
   end
   
   def description_or_summary
-    description unless description.blank?
-    summary
+    return description unless description.blank?
+    return summary
   end
   
   def self.new_from_gem_spec(spec)
