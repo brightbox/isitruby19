@@ -1,20 +1,20 @@
 
-<div id="latest-feedback">
-  <h1>Latest Feedback</h1>
+<div id="left" class="column">
+  <h2>Latest Feedback</h2>
   <%= render :partial => 'comments/comment', :collection => @latest_feedback %>
 </div>
 
-<div id="popular-gems">
-  <h1>Popular</h1>
+<div id="middle" class="column">
+  <h2>Popular gems <span class="lighterblue">(most comments)</span></h2>
   <%= render :partial => 'codes/code', :collection => @popular %>
-</div>
 
-<div id="help-us-out">
-  <h1>Help us out</h1>
+  <h2>Not-so-popular gems <span class="lighterblue">(least comments)</span></h2>
   <%= render :partial => 'codes/code', :collection => @unpopular %>
+
 </div>
 
-<div id="compatibility">
-  <h1>Compatibility</h1>
-  <%= @compatibility %>%
+<div id="right" class="column">
+  <h2>Good compatibility <span class="lighterblue">(works for most)</span></h2>
 </div>
+
+<br style="clear:both" />

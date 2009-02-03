@@ -4,7 +4,35 @@ body {
 	text-align: center;
 	background: #163457 url("/images/bg/body_bg.png") repeat-x top center;
 	color: white;
+	font-family: "Lucida Grande","Lucida Sans",lucida,verdana,sans-serif;
+	font-size: 12px;
 }
+
+body * {
+	margin: 0;
+	padding: 0;
+}
+
+
+h2 {
+	font-family: Georgia;
+	font-weight: normal;
+	font-size: 18px;
+	margin-bottom: 0.8em;
+	line-height: 110%;
+}
+
+h2 span {
+	font-size: 80%;
+	
+}
+
+
+a {
+	color: white;
+}
+
+
 
 #wrapper {
 	background: transparent url("/images/bg/wrapper_bg.png") no-repeat center top;
@@ -15,9 +43,8 @@ body {
 
 
 #header {
-	background: green;
-	padding-top: 20px;
-	height: 170px;
+	padding-top: 25px;
+	height: 250px;
 }
 
 
@@ -37,12 +64,132 @@ body {
 	overflow: hidden;
 }
 
+p.tagline {
+	font-size: 18px;
+	text-align: center;
+	margin-bottom: 15px;
+}
+
 #search {
 	background-color: #182945;
-	-moz-border-radius: 6px; /* this works only in camino/firefox */
-	-webkit-border-radius: 6px; /* this is just for Safari */
-	margin-bottom: 30px;
-	padding: 20px;
+	padding: 15px;
+	width: 500px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+#search form {
+	margin-bottom: 5px;
+}
+
+#search form input {
+	font-size: 18px;
+	vertical-align: middle;
+	margin-right: 5px;
+}
+
+#search form input#s {
+	width: 200px;
+	font-weight: bold;
+	padding: 5px;
+	border: 1px solid #000;
+	color: #999;
+}
+
+#search form input#s span {
+	color: #999;
 }
 
 
+
+#main {
+	text-align: left;
+	padding-bottom: 20px;
+	width: 960px;
+}
+
+div.column {
+	width: 300px;
+	float: left;
+	display: inline;
+	min-height: 250px;
+}
+
+div.column#left, div.column#middle {
+	margin-right: 30px;
+}
+
+
+
+p {
+	margin-bottom: 0.8em;
+	
+}
+
+.lightblue {
+	color: #345983;
+}
+
+.lighterblue {
+	color: #95ABC3;
+}
+
+.small {
+	font-size: 75%;
+}
+
+p.no_margin {
+	margin: 0;
+}
+
+
+.rounded {
+	-moz-border-radius: 6px; /* this works only in camino/firefox */
+	-webkit-border-radius: 6px; /* this is just for Safari */
+}
+
+span.works, span.fails {
+	color: white;
+	padding: 2px 4px;
+	font-size: 11px;
+	text-transform: uppercase;
+	-moz-border-radius: 2px; /* this works only in camino/firefox */
+	-webkit-border-radius: 2px; /* this is just for Safari */
+}
+
+span.works {
+	background-color: #66CC00;
+}
+
+span.fails {
+	background-color: #cc0000;
+}
+span.white {
+	color: white;
+}
+
+div.comment {
+  color: #95ABC3;
+	background-color: #345983;
+	margin-bottom: 20px;
+	padding: 12px 12px;
+}
+
+div.comment p {
+	font-size: 12px;
+	margin-left: 65px;
+	line-height: 160%;
+	margin-bottom: 0;
+}
+
+#footer {
+	width: 100%;
+	clear: both;
+}
+
+img.gravatar {
+	padding: 1px;
+	border: 1px solid #95ABC3;
+	float: left;
+	display: inline;
+}

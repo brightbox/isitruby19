@@ -1,7 +1,7 @@
 module CommentsHelper
   def name_link_for comment
     if comment.url.blank?
-      h(comment.name) 
+      "<span class=\"white\">#{h(comment.name)}</span>"
     else
       "<a href=\"#{h(comment.url)}\" rel=\"nofollow\">#{h(comment.name)}</a>"
     end
