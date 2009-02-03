@@ -20,10 +20,15 @@ class Code < ActiveRecord::Base
     self.homepage =~ /^http:/i
   end
   
+  def description_or_summary
+    description unless description.blank?
+    summary
+  end
+  
   def self.new_from_gem_spec(spec)
     f = find_or_initialize_by_name(spec.name.to_s)
     if f.new_record?
-      f.attributes = {:description => spec.description, :homepage => spec.homepage, :rubyforge => spec.rubyforge_project}
+      f.attributes = {:description => spec.description, :homepage => spec.homepage, :rubyforge => spec.rubyforge_project, :summary => spec.summary}
       f.code_type = "gem"
       f.save!
       spec.authors.each do |author|
