@@ -1,9 +1,9 @@
 module CodesHelper
   def homepage_link_for code
     if code.has_homepage_url?
-      "<a href=\"#{code.homepage}\">#{h(code.name)}</a>"
+      "<a href=\"#{code.homepage}\">#{h(code.homepage)}</a>"
     else
-      code.name    
+      "<a href=\"http://rubyforge.org/search/?type_of_search=soft&search=search&words=#{code.name}\">Rubyforge search (#{h(code.name)})</a>"
     end
   end
   
