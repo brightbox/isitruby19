@@ -1,14 +1,15 @@
+<a name="newcomment"></a>
 <% form_for [code, @comment] do | form | %>
+<h2>Add your comment</h2>
   <%= error_messages_for :comment %>
-  <ul>
-    <li> <%= form.label :works_for_me %> <%= form.radio_button :works_for_me, true %> Yes <%= form.radio_button :works_for_me, false %> No</li>
-    <li> <%= form.label :version %> <br/> <%= form.text_field :version, :size => 10 %> </li>
-    <li> <%= form.label :platform_id %> <br/> <%= form.collection_select :platform_id, Platform.all, :id, :name %> </li>
-    <li> <%= form.label :body, "Comments " %> <br/> <%= form.text_area :body, :rows => 3 %> </li>
-    <li> <%= form.label :name %> <br/> <%= form.text_field :name %> </li>
-    <li> <%= form.label :email %> <br/> <%= form.text_field :email %> </li>
-    <li> <%= form.label :url %> <br/> <%= form.text_field :url %> </li>
-    <li> <%= get_captcha :rcc_pub => RECAPTCHA_PUBLIC_KEY, :rcc_priv => RECAPTCHA_PRIVATE_KEY, :options => { :theme => 'white' }  %> </li>
-    <li> <%= submit_tag 'Submit &rarr;', :disable_with => 'submitting...' %></li>
-  </ul>
+  <p> <%= form.label :name %> <br/> <%= form.text_field :name %> </p>
+    <p> <%= form.label :email %> <br/> <%= form.text_field :email, :class => 'text_field' %> </p>
+    <p> <label>URL <span class="lighterblue">(optional)</span></label> <br/> <%= form.text_field :url %> </p>
+    <p> <%= form.label :works_for_me %> <%= form.radio_button :works_for_me, true %> Yes <%= form.radio_button :works_for_me, false %> No</p>
+    <p> <%= form.label :version %> <br/> <%= form.text_field :version, :size => 10 %> </p>
+    <p> <%= form.label :platform_id %> <br/> <%= form.collection_select :platform_id, Platform.all, :id, :name %> </p>
+    <p> <label>Comments <span class="lighterblue">(optional)</span></label><br/> <%= form.text_area :body, :rows => 6 %> </p>
+  
+    <p><%= get_captcha :rcc_pub => RECAPTCHA_PUBLIC_KEY, :rcc_priv => RECAPTCHA_PRIVATE_KEY, :options => { :theme => 'white' }  %> </p>
+    <p> <%= submit_tag 'Submit comment' %></p>
 <% end %>
