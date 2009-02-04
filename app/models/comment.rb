@@ -8,7 +8,7 @@ class Comment < ActiveRecord::Base
 
   def initialize params = nil
     super
-    self.works_for_me ||= true
+    self.works_for_me ||= true unless self.works_for_me == false
   end
   
 private
