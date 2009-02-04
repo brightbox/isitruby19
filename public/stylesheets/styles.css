@@ -14,25 +14,45 @@ body * {
 }
 
 
-h2 {
-	font-family: Georgia;
-	font-weight: normal;
-	font-size: 18px;
-	margin-bottom: 0.8em;
-	line-height: 110%;
-}
-
-h2 span {
-	font-size: 80%;
-	
-}
-
+/*********** LINK STYLES *************/
 
 a {
 	color: white;
 }
 
+a.gem {
+	font-size: 120%;
+}
 
+/*********** HEADINGS *************/
+
+h1.code_title {
+	font-family: Georgia;
+	font-weight: normal;
+	font-size: 40px;
+	margin-bottom: 21px;
+}
+
+h2 {
+	padding-top: 0.3em;
+	font-family: Georgia;
+	font-weight: normal;
+	font-size: 18px;
+	margin-bottom: 0.7em;
+	line-height: 110%;
+}
+
+h2 span {
+	font-size: 80%;
+}
+
+
+/********** MISC HTML STYLES ************/
+
+
+p {
+	margin-bottom: 0.9em;	
+}
 
 ul {
 	padding-left: 25px;
@@ -42,27 +62,14 @@ ul {
 ul li {
 	margin-bottom: 1em;
 	line-height: 135%;
-	
 }
 
-div.pagination {
-	padding: 10px 0;
-	font-size: 13px;
-	text-align: center;
-	color: #4A6F97;
-	margin-bottom: 30px;
-}
-
-div.pagination a, div.pagination span {
-	padding: 3px 2px;
-}
-
-div.pagination span.current {
-	color: white;
-	font-size: 27px;
+img, a img {
+	border: 0;
 }
 
 
+/*********** LAYOUT *************/
 
 #wrapper {
 	background: transparent url("/images/bg/wrapper_bg.png") no-repeat center top;
@@ -71,12 +78,36 @@ div.pagination span.current {
 	margin-right: auto;
 }
 
-
 #header {
 	padding-top: 25px;
-	height: 250px;
+	height: 240px;
 }
 
+#main {
+	text-align: left;
+	padding-bottom: 20px;
+	width: 960px;
+	min-height: 400px;
+}
+
+div.column {
+	width: 300px;
+	float: left;
+	display: inline;
+	min-height: 250px;
+}
+
+div.column#left, div.column#middle {
+	margin-right: 30px;
+}
+
+#footer {
+	width: 100%;
+	clear: both;
+}
+
+
+/********* LOGO ************/
 
 #logo {
 	width: 391px;
@@ -100,6 +131,9 @@ p.tagline {
 	text-align: center;
 	margin-bottom: 15px;
 }
+
+
+/********* SEARCH BOX **************/
 
 #search {
 	background-color: #182945;
@@ -132,31 +166,27 @@ p.tagline {
 }
 
 
+/********* PAGINATION **************/
 
-#main {
-	text-align: left;
-	padding-bottom: 20px;
-	width: 960px;
-	min-height: 400px;
+div.pagination {
+	padding: 10px 0;
+	font-size: 13px;
+	text-align: center;
+	color: #4A6F97;
+	margin-bottom: 30px;
 }
 
-div.column {
-	width: 300px;
-	float: left;
-	display: inline;
-	min-height: 250px;
+div.pagination a, div.pagination span {
+	padding: 3px 2px;
 }
 
-div.column#left, div.column#middle {
-	margin-right: 30px;
+div.pagination span.current {
+	color: white;
+	font-size: 27px;
 }
 
 
-
-p {
-	margin-bottom: 0.8em;
-	
-}
+/******** CLASSES *********/
 
 .lightblue {
 	color: #345983;
@@ -172,10 +202,6 @@ p {
 
 p.no_margin {
 	margin: 0;
-}
-
-a.gem {
-	font-size: 120%;
 }
 
 .rounded {
@@ -203,12 +229,16 @@ span.white {
 	color: white;
 }
 
+
+/********* COMMENTS ************/
+
 div.comment {
   color: #95ABC3;
 	background-color: #345983;
 	margin-bottom: 12px;
 	padding: 12px 12px;
 	min-height: 55px;
+	max-width: 600px;
 }
 
 div.comment p, div.comment blockquote {
@@ -221,11 +251,6 @@ div.comment p {
 	line-height: 160%;
 }
 
-#footer {
-	width: 100%;
-	clear: both;
-}
-
 img.gravatar {
 	padding: 1px;
 	border: 1px solid #95ABC3;
@@ -235,4 +260,42 @@ img.gravatar {
 
 div.fieldWithErrors {
   border: 2px solid red; 
+}
+
+
+
+
+dt {
+	color: #95ABC3;
+}
+
+dd {
+	line-height: 150%;
+	margin-bottom: 0.9em;
+}
+
+#new-comment-form {
+	-moz-border-radius: 9px; /* this works only in camino/firefox */
+	-webkit-border-radius: 9px; /* this is just for Safari */
+	background-color: #182945;
+	padding: 15px 25px;
+	width: 560px;
+}
+
+#new-comment-form label {
+	font-size: 11px;
+	line-height: 130%;
+	
+}
+
+
+#new-comment-form input,#new-comment-form textarea {
+	margin-top: 2px;
+	border: 1px solid black;
+	padding: 3px;
+	font-size: 13px;
+}
+
+#new-comment-form .text_field {
+width: 250px;	
 }

@@ -1,22 +1,23 @@
-<h1 class="code-title"><%= homepage_link_for @code %></h1>
-
-<p>
-  <%= large_working_icon_for @code %>
-</p>
-
-<p class="description">
-  <%= h @code.description_or_summary %>
-</p>
-
-<p class="authors">
-  <%= h @code.author_names %>
-</p>
-
-<p><%= link_to_function 'add a comment &rarr;', visual_effect(:toggle_blind, 'new-comment-form') %> </p>
-<div id="new-comment-form" <%= show_comment_form_for(@comment) %>>
-  <%= render :partial => 'comments/new', :locals => { :code => @code } %>
-</div>
+<% @page_title = @code.name+" gem ruby 1.9 compatibility" %>
 
 
+<h1 class="code_title"><%= @code.name %></h1>
+
+<dl>
+	<dt>URL</dt>
+	<dd><%= link_to @code.homepage, @code.homepage %> </dd>
+	<dt>Author(s)</dt>
+	<dd><%= h @code.author_names %></dd>
+	<dt>Summary</dt>
+	<dd><%= @code.description_or_summary %></dd>
+</dl>
+
+<p><a href="#newcomment">Add your comment &darr;</a></p>
+
+
+<h2>Comments</h2>
 <%= render :partial => 'comments/comment', :collection => @code.comments, :locals => { :show_quote => true } %>
 
+<div id="new-comment-form">
+  <%= render :partial => 'comments/new', :locals => { :code => @code } %>
+</div>
