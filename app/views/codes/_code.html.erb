@@ -1,8 +1,11 @@
 <% content_tag_for :li, code do %>
   <%= link_to h(code.slug_name), code_by_slug_path(code.slug_name), :class => 'gem' %> 
-
 <%= "<span class=\"works\">#{code.working_comments.length}</span>" unless code.working_comments.empty? %>
 <%= "<span class=\"fails\">#{code.failure_comments.length}</span>" unless code.failure_comments.empty? %>
+	<br />
+<span class="lighterblue">	
+	<%= h truncate(code.description_or_summary,200) if local_assigns[:show_summary] %>
+	</span>
 	
 
 <% end %>

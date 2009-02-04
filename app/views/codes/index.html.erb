@@ -1,10 +1,13 @@
-<h1>Codez</h1>
 
-<%= will_paginate @codes %>
+
+<%= will_paginate @codes, :separator => '&bull;' %>
+
+
 
 <% if @codes %>
+
   <ul>
-    <%= render :partial => 'code', :collection => @codes %>
+    <%= render :partial => 'code', :collection => @codes, :locals => { :show_summary => true } %>
   </ul>
 <% end %>
 

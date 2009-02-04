@@ -41,7 +41,25 @@ ul {
 
 ul li {
 	margin-bottom: 1em;
+	line-height: 135%;
 	
+}
+
+div.pagination {
+	padding: 10px 0;
+	font-size: 13px;
+	text-align: center;
+	color: #4A6F97;
+	margin-bottom: 30px;
+}
+
+div.pagination a, div.pagination span {
+	padding: 3px 2px;
+}
+
+div.pagination span.current {
+	color: white;
+	font-size: 27px;
 }
 
 
@@ -193,11 +211,14 @@ div.comment {
 	min-height: 55px;
 }
 
-div.comment p {
+div.comment p, div.comment blockquote {
 	font-size: 12px;
 	margin-left: 65px;
-	line-height: 160%;
 	margin-bottom: 0;
+}
+
+div.comment p {
+	line-height: 160%;
 }
 
 #footer {

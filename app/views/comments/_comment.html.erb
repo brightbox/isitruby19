@@ -4,6 +4,6 @@
 	<%= link_to h(comment.code.slug_name), code_by_slug_path(comment.code.slug_name), :class => 'gem' %>
 	is <%= opinion_for comment %><br />
 	for <%= name_link_for comment %> <span class="lighterblue">(<%= comment.platform %>)</span><br />
-	<%= "&ldquo;#{h comment.body}&rdquo;" if local_assigns[:show_quote] %>
 	</p>
+	<%= "<blockquote>&ldquo;#{h comment.body}&rdquo;</blockquote>" if local_assigns[:show_quote] %>
 </div>

@@ -1,5 +1,5 @@
 <% form_tag codes_path, :method => :get, :id => 'search-form' do %>
-  <%= text_field_tag :s, params[:s], :value => 'gem search' %> <%= submit_tag 'Search' %>
+  <%= text_field_tag :s, params[:s].blank? ? 'gem search' : params[:s], :onfocus => "if(this.value == 'gem search') {this.value = ''}" %> <%= submit_tag 'Search' %>
 <span class="lightblue">or</span> <%= link_to "Browse all", codes_url %>
 
 <% end %>
