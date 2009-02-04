@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   cache_sweeper :code_and_comment_sweeper
+  skip_before_filter :verify_authenticity_token  
   def create
     @code = Code.find params[:code_id]
     @comment = @code.build_comment params[:comment]
