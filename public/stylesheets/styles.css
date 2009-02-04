@@ -232,3 +232,7 @@ img.gravatar {
 	float: left;
 	display: inline;
 }
+
+div.fieldWithErrors {
+  border: 2px solid red; 
+}

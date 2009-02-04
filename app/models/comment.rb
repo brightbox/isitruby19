@@ -5,8 +5,13 @@ class Comment < ActiveRecord::Base
   named_scope :working, :conditions => { :works_for_me => true }
   named_scope :failed, :conditions => { :works_for_me => false }
   delegate :slug_name, :to => :code
+
+  def initialize params = nil
+    super
+    self.works_for_me ||= true
+  end
   
 private
-  validates_presence_of :code
-  validates_presence_of :platform
+  validates_presence_of :code, :platform, :name, :email
+  validates_format_of :email, :with => /^([_a-z0-9\+\.\-]+\@[_a-z0-9\-]+\.[_a-z0-9\.\-]+)$/i
 end

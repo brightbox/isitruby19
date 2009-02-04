@@ -4,4 +4,4 @@ tmp/*
 db/*.sqlite3
 index
 .DS_Store
-cache/*
+public/cache/*
