@@ -1,0 +1,47 @@
+= Object-factory
+
+A ruby gem designed to make it simple to create test objects within your test framework, so you don't need to use nasty fixtures.  
+
+If you don't use the a_saved method then it should work with any type of model, if you do use a_saved then it will work with any model that has a save method (that returns false on failure - so ActiveRecord and DataMapper should be OK).  
+
+== Install
+
+  gem install rahoulb-object-factory --source http://gems.github.com/
+  
+== Usage
+
+See the wiki page at http://github.com/rahoulb/object-factory/wikis/home for the latest docs.
+
+However, it works something like this: 
+
+  when_creating_a Person, :auto_generate => :employee_code
+ 
+  @person = a Person, :first_name => 'John', :last_name => 'Smith'
+  puts @person.employee_code # will show a unique auto-generated value
+  
+And your options are: 
+
+* :auto_generate => [:field1, :field2]: generates a unique string value for the given field name or array of field names
+* :auto_confirm => :password: generates a unique string value for the given field name or array of field names and also sets field_name_confirmation to the same value
+* :generate_email_address => :email: generates a randomised email address for the given field name or array of field names
+* :generate_ip_address => :ip: generates a randomised ip address for the given field name or array of field names
+* :set => { :field3 => 'value3', :field4 => 'value4' }: sets the given fields to the supplied static values
+* :generate => { :field5 => lambda { Date.today } }: sets the given fields to the supplied dynamic values
+
+== Rails
+
+To use this with rails, stick the following in your +environment.rb+:
+
+  config.gem "rahoulb-object-factory", :lib => "object_factory", :source => "http://gems.github.com"
+
+== Released under the MIT Licence
+
+Copyright (c) 2008 Brightbox Systems Ltd 
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+See http://www.brightbox.co.uk/ for contact details.  

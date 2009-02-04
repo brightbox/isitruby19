@@ -1,0 +1,15 @@
+= Version 0.1.3 (2008-12-08)
+
+Added generate_ip_address
+
+= Version 0.1.2 (2008-12-08)
+
+...
+
+= Version 0.1.1 2008-11-24
+
+Added when_creating_a and when_creating_an as short-cut methods
+
+= Version 0.1.0 (2008-11-24)
+
+Initial Release
