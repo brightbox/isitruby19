@@ -3,8 +3,8 @@
   <ul>
     <li> <%= form.label :works_for_me %> <%= form.radio_button :works_for_me, true %> Yes <%= form.radio_button :works_for_me, false %> No</li>
     <li> <%= form.label :version %> <br/> <%= form.text_field :version, :size => 10 %> </li>
-    <li> <%= form.label :body, "Comments " %> <br/> <%= form.text_area :body, :rows => 3 %> </li>
     <li> <%= form.label :platform_id %> <br/> <%= form.collection_select :platform_id, Platform.all, :id, :name %> </li>
+    <li> <%= form.label :body, "Comments " %> <br/> <%= form.text_area :body, :rows => 3 %> </li>
     <li> <%= form.label :name %> <br/> <%= form.text_field :name %> </li>
     <li> <%= form.label :email %> <br/> <%= form.text_field :email %> </li>
     <li> <%= form.label :url %> <br/> <%= form.text_field :url %> </li>

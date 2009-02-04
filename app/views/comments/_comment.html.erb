@@ -2,6 +2,7 @@
   <%= gravatar_for comment %>
   <p class="status">
 	<%= link_to h(comment.code.slug_name), code_by_slug_path(comment.code.slug_name), :class => 'gem' %>
+	<%= "(#{comment.version})" unless comment.version.blank? %>
 	is <%= opinion_for comment %><br />
 	for <%= name_link_for comment %> <span class="lighterblue">(<%= comment.platform %>)</span><br />
 	</p>
