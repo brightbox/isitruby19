@@ -1,0 +1,1 @@
+# placeholder to make this a rails plugin

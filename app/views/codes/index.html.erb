@@ -1,14 +1,12 @@
-
-
 <%= will_paginate @codes, :separator => '&bull;' %>
-
-
-
 <% if @codes %>
-
-  <ul>
-    <%= render :partial => 'code', :collection => @codes, :locals => { :show_summary => true } %>
-  </ul>
+  <% if @codes.empty? %>
+    <div class="no-results">Sorry, there are no gems matching your search</div>
+  <% else %>
+    <ul>
+        <%= render :partial => 'code', :collection => @codes, :locals => { :show_summary => true } %>
+    </ul>
+  <% end %>
 <% end %>
 
 <%= will_paginate @codes %>
