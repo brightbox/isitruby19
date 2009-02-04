@@ -1,19 +1,15 @@
-<% @page_title = @code.name+" gem ruby 1.9 compatibility" %>
-
-
 <h1 class="code_title"><%= @code.name %></h1>
 
 <dl>
-	<dt>URL</dt>
-	<dd><%= homepage_link_for @code %> </dd>
-	<dt>Author(s)</dt>
-	<dd><%= h @code.author_names %></dd>
-	<dt>Summary</dt>
-	<dd><%= @code.description_or_summary %></dd>
+  <dt>URL</dt>
+  <dd><%= homepage_link_for @code %> </dd>
+  <dt>Author(s)</dt>
+  <dd><%= h @code.author_names %></dd>
+  <dt>Summary</dt>
+  <dd><%= @code.description_or_summary %></dd>
 </dl>
 
 <p><a href="#newcomment">Add your comment &darr;</a></p>
-
 
 <h2>Comments</h2>
 <%= render :partial => 'comments/comment', :collection => @code.comments, :locals => { :show_quote => true } %>

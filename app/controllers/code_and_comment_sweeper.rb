@@ -11,8 +11,6 @@ class CodeAndCommentSweeper < ActionController::Caching::Sweeper
   
 private
   def expire code_or_comment
-    slug = code_or_comment.slug_name
-    `rm #{RAILS_ROOT}/public/cache/index.html`
-    `rm #{RAILS_ROOT}/public/cache/#{slug}.html`
+    expire_fragment :controller => 'home', :action => 'show'
   end
 end

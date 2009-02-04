@@ -1,5 +1,3 @@
-<% @page_title = "Community-powered gem compatibility for ruby 1.9" %>
-
 <%= will_paginate @codes, :separator => '&bull;' %>
 <% if @codes %>
   <% if @codes.empty? %>
@@ -11,5 +9,5 @@
   <% end %>
 <% end %>
 
-<%= will_paginate @codes %>
+<%= will_paginate @codes, :separator => '&bull;' %>
 

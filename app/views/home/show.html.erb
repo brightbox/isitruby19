@@ -1,29 +1,30 @@
-<% @page_title = 'Community-powered gem compatibility for ruby 1.9' %>
+<% cache do %>
+  <div id="left" class="column">
+    <h2>Latest Feedback</h2>
+    <%= render :partial => 'comments/comment', :collection => @latest_feedback %>
+  </div>
 
-<div id="left" class="column">
-  <h2>Latest Feedback</h2>
-  <%= render :partial => 'comments/comment', :collection => @latest_feedback %>
-</div>
-
-<div id="middle" class="column">
-  <h2>Popular gems <span class="lighterblue">(most comments)</span></h2>
-	<ul>
-  <%= render :partial => 'codes/code', :collection => @popular %>
-	</ul>
-
-</div>
-
-<div id="right" class="column">
-  <h2>Get involved!</h2>
-<p class="lighterblue">The Ruby community needs your help. <a href="http://www.ruby-lang.org">Install Ruby 1.9.1</a> then try out your favourite gems and provide feedback here.</p>
-<p class="lighterblue">We can then track the general "supported-ness" of gems in Ruby 1.9</p>
-
-  <h2>Don't know where to start?</h2>
-<p class="lighterblue">Try one of these...</p>
-	<ul>
-  <%= render :partial => 'codes/code', :collection => @unpopular %>
-	</ul>	
-	
-</div>
-
-<br style="clear:both" />
+  <div id="middle" class="column">
+    <h2>Popular gems <span class="lighterblue">(most comments)</span></h2>
+    <ul>
+    <%= render :partial => 'codes/code', :collection => @popular %>
+    </ul>
+  
+  </div>
+  
+  <div id="right" class="column">
+    <h2>Get involved!</h2>
+  <p class="lighterblue">The Ruby community needs your help. <a href="http://www.ruby-lang.org">Install Ruby 1.9.1</a> then try out your favourite gems and provide feedback here.</p>
+  <p class="lighterblue">We can then track the general "supported-ness" of gems in Ruby 1.9</p>
+  
+    <h2>Don't know where to start?</h2>
+  <p class="lighterblue">Try one of these...</p>
+    <ul>
+    <%= render :partial => 'codes/code', :collection => @unpopular %>
+    </ul>	
+    
+  </div>
+  
+  <br style="clear:both" />
+  
+<% end %>
