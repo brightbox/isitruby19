@@ -6,5 +6,5 @@
 	is <%= opinion_for comment %><br />
 	for <%= name_link_for comment %> <span class="lighterblue">(<%= comment.platform %>)</span><br />
 	</p>
-	<%= "<blockquote>&ldquo;#{h comment.body}&rdquo;</blockquote>" if local_assigns[:show_quote] %>
+	<%= "<blockquote>&ldquo;#{h comment.body}&rdquo;</blockquote>" if local_assigns[:show_quote] && !comment.body.blank? %>
 </div>

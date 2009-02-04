@@ -259,11 +259,25 @@ img.gravatar {
 }
 
 div.fieldWithErrors {
-  border: 2px solid red; 
+	display: inline;
 }
 
+#new-comment-form div.fieldWithErrors input {
+	border: 2px solid red; 
+}
 
+div.errorExplanation {
+	background-color: #990000;
+	border: 2px solid red;
+	padding: 10px;	
+}
 
+#flash_notice {
+	border: 1px solid #66CC00;
+	background-color: green;
+	padding: 10px;
+	margin-bottom: 10px;
+}
 
 dt {
 	color: #95ABC3;
@@ -275,6 +289,7 @@ dd {
 }
 
 #new-comment-form {
+	margin-top: 30px;
 	-moz-border-radius: 9px; /* this works only in camino/firefox */
 	-webkit-border-radius: 9px; /* this is just for Safari */
 	background-color: #182945;
