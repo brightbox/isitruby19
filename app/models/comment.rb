@@ -13,6 +13,5 @@ class Comment < ActiveRecord::Base
   
 private
   validates_presence_of :code, :platform, :name, :email
-  validates_format_of :email, :with => /^([_a-z0-9\+\.\-]+\@[_a-z0-9\-]+\.[_a-z0-9\.\-]+)$/i,
-      :unless => Proc.new {|x| x.email.blank? }
+  validates_format_of :email, :with => /^([_a-z0-9\+\.\-]+\@[_a-z0-9\-]+\.[_a-z0-9\.\-]+)$/i
 end
