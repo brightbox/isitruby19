@@ -15,6 +15,14 @@ class Comment < ActiveRecord::Base
     code.slug_name
   end
   
+  def fixed_url
+    unless url[%r{^http://}]
+      return "http://#{url}"
+    else 
+      return url
+    end
+  end
+  
 private
   validates_presence_of :code, :platform, :name
   validates_format_of :email, :with => /^([_a-z0-9\+\.\-]+\@[_a-z0-9\-]+\.[_a-z0-9\.\-]+)$/i
