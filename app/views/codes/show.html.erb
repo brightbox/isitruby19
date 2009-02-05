@@ -4,7 +4,7 @@
   <dt>URL</dt>
   <dd><%= homepage_link_for @code %> </dd>
   <dt>Author(s)</dt>
-  <dd><%= h @code.author_names %></dd>
+  <dd><%= author_links(@code.authors) %></dd>
   <dt>Summary</dt>
   <dd><%= @code.description_or_summary %></dd>
 </dl>

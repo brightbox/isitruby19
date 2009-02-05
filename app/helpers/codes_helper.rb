@@ -22,4 +22,10 @@ module CodesHelper
   def show_comment_form_for comment
     return 'style="display:none"' if comment.nil? || comment.errors.size == 0
   end
+  
+  def author_links(authors)
+    authors.collect do |author|
+      link_to(h(author.name), author.permalink)
+    end.to_sentence
+  end
 end

@@ -20,10 +20,6 @@ class Code < ActiveRecord::Base
     has_no_failure_comments? && has_working_comments?
   end
   
-  def author_names
-    authors.collect { | a | a.name }.to_sentence
-  end
-  
   def has_homepage_url?
     self.homepage =~ /^http:/i
   end
