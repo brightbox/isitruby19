@@ -14,4 +14,8 @@ module CommentsHelper
       "<span class=\"fails\">Failing</span>"
     end
   end
+
+  def format_comment comment
+    simple_format( auto_link( h(comment), :link => :urls) )
+  end
 end
