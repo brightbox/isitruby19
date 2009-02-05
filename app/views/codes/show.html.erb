@@ -10,10 +10,10 @@
 </dl>
 
 <p><a href="#newcomment">Add your comment &darr;</a></p>
-
-<h2>Comments</h2>
-<%= render :partial => 'comments/comment', :collection => @code.comments, :locals => { :show_quote => true } %>
-
+<%- cache(:action => "show", :id => @code.slug_name, :type => :comments) do -%>
+  <h2>Comments</h2>
+  <%= render :partial => 'comments/comment', :collection => @code.comments, :locals => { :show_quote => true } %>
+<%- end -%>
 <div id="new-comment-form">
   <%= render :partial => 'comments/new', :locals => { :code => @code } %>
 </div>

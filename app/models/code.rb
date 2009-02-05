@@ -8,6 +8,10 @@ class Code < ActiveRecord::Base
   named_scope :popular, :order => 'comments_count desc'
   named_scope :unpopular, :order => 'comments_count asc'
   
+  def code_slug_name
+    self.slug_name
+  end
+  
   def works?
     has_no_failure_comments? && has_working_comments?
   end

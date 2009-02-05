@@ -11,6 +11,10 @@ class Comment < ActiveRecord::Base
     self.works_for_me ||= true unless self.works_for_me == false
   end
   
+  def code_slug_name
+    code.slug_name
+  end
+  
 private
   validates_presence_of :code, :platform, :name
   validates_format_of :email, :with => /^([_a-z0-9\+\.\-]+\@[_a-z0-9\-]+\.[_a-z0-9\.\-]+)$/i
