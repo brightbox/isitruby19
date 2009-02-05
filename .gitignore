@@ -1,7 +1,8 @@
 db/database.yml
 log/*
-tmp/*
 db/*.sqlite3
 index
 .DS_Store
-public/cache/*
+tmp/pids
+tmp/sessions
+tmp/sockets
