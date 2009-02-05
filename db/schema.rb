@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090204122700) do
+ActiveRecord::Schema.define(:version => 20090205092615) do
 
   create_table "authors", :force => true do |t|
     t.string   "name"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(:version => 20090204122700) do
 
   add_index "codes", ["comments_count"], :name => "index_codes_on_comments_count"
   add_index "codes", ["name"], :name => "index_codes_on_name"
+  add_index "codes", ["slug_name"], :name => "index_codes_on_slug_name"
   add_index "codes", ["updated_at"], :name => "index_codes_on_updated_at"
 
   create_table "comments", :force => true do |t|
