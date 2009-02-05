@@ -9,12 +9,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090205092615) do
+ActiveRecord::Schema.define(:version => 20090205210702) do
 
   create_table "authors", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "slug_name"
   end
 
   add_index "authors", ["name"], :name => "index_authors_on_name"
@@ -26,6 +27,7 @@ ActiveRecord::Schema.define(:version => 20090205092615) do
     t.datetime "updated_at"
   end
 
+  add_index "authorships", ["author_id", "code_id"], :name => "authorships_index"
   add_index "authorships", ["author_id"], :name => "index_authorships_on_author_id"
   add_index "authorships", ["code_id"], :name => "index_authorships_on_code_id"
 

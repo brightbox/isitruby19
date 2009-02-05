@@ -1,11 +1,7 @@
 class AuthorsController < ApplicationController
-  
-  def index
     
-  end
-  
   def show
-    @author = Author.find_by_name!(params[:id].gsub(/\-/, " "))
+    @author = Author.find_by_slug_name!(params[:id])
     respond_to do |wants|
       wants.html    
       wants.json { render :json => @author }
