@@ -30,14 +30,14 @@ class Code < ActiveRecord::Base
   end
   
   def to_json(options = {})
-    default_only = ["name", "description", "summary", "homepage", "rubyforge"]
+    default_only = ["name", "description", "summary", "homepage", "rubyforge", "code_type"]
     options[:only] = (options[:only] || []) + default_only
     options[:methods] = :permalink
     super(options)
   end
   
   def to_xml(options = {})
-    default_only = ["name", "description", "summary", "homepage", "rubyforge"]
+    default_only = ["name", "description", "summary", "homepage", "rubyforge", "code_type"]
     options[:only] = (options[:only] || []) + default_only
     super(options)  do |xml|
       xml.permalink permalink
