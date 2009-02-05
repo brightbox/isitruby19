@@ -60,7 +60,7 @@ private
   
   before_validation_on_create :set_slug_name
   
-  acts_as_ferret :fields => [:name, :description, :homepage, :rubyforge, :github, :slug_name]
+  acts_as_ferret :fields => [:name, :description, :homepage, :rubyforge, :github, :slug_name, :summary]
   
   def set_slug_name
     self.slug_name = slug_name_from_name || self.rubyforge

@@ -4,10 +4,7 @@ class CodesController < ApplicationController
     if params[:s].blank?
       @codes = Code.paginate(:per_page => 30, :page => params[:page], :include => [:working_comments, :failure_comments], :order => 'name')
     else
-      # TODO: Ferret's not working for JJ so to get him going, let's have a SQL search and swap this back later
-      #@codes = Code.find_with_ferret(["*", params[:s], "*"].to_s, { :per_page => 30, :page => params[:page] }, { :include => [:working_comments, :failure_comments], :order => 'name' })
-      # TODO: swap out the expensive sql query later
-      @codes = Code.paginate(:conditions => ['name like ?', "%#{params[:s]}%"], :per_page => 30, :page => params[:page], :include => [:working_comments, :failure_comments], :order => 'name')
+      @codes = Code.find_with_ferret(["*", params[:s], "*"].to_s, { :per_page => 30, :page => params[:page] }, { :include => [:working_comments, :failure_comments], :order => 'name' })
     end
   end
   
