@@ -13,7 +13,8 @@ class CodesController < ApplicationController
     respond_to do |wants|
       wants.html {
         @page_title = "#{@code.name} gem ruby 1.9 compatibility"
-        @comment = Comment.new
+        @comment = Comment.new(:name => cookies[:comment_name], :email => cookies[:comment_email],
+                               :url => cookies[:comment_url])
       }
       wants.json { render :json => @code }
       wants.xml { render :xml => @code }

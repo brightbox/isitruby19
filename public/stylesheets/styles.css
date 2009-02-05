@@ -241,7 +241,7 @@ div.comment {
 	max-width: 600px;
 }
 
-div.comment p, div.comment blockquote {
+div.comment > p, div.comment blockquote {
 	font-size: 12px;
 	margin-left: 65px;
 	margin-bottom: 0;
