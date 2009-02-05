@@ -10,12 +10,23 @@ class CodesController < ApplicationController
   
   def show
     @code = Code.find_by_slug_name!(params[:slug_name], :include => :comments)
-    @page_title = "#{@code.name} gem ruby 1.9 compatibility"
-    @comment = Comment.new
-
+    respond_to do |wants|
+      wants.html {
+        @page_title = "#{@code.name} gem ruby 1.9 compatibility"
+        @comment = Comment.new
+      }
+      wants.json { render :json => @code }
+      wants.xml { render :xml => @code }
+    end
   rescue ActiveRecord::RecordNotFound
-    @codes = Code.find_with_ferret(["*", params[:slug_name], "*"].to_s)
-    render :action => "no_show", :status => :not_found 
+    respond_to do |wants|
+      wants.html {
+        @codes = Code.find_with_ferret(["*", params[:slug_name], "*"].to_s)
+        render :action => "no_show", :status => :not_found 
+      }
+      wants.json { head :status => :not_found }
+      wants.xml { head :status => :not_found }
+    end
   end
   
 end

@@ -1,6 +1,20 @@
 class CommentsController < ApplicationController
   cache_sweeper :code_and_comment_sweeper
-  skip_before_filter :verify_authenticity_token  
+  skip_before_filter :verify_authenticity_token 
+  
+  def index
+    @code = Code.find_by_slug_name! params[:code_id]
+    respond_to do |wants|
+      wants.json { render :json => @code.comments }
+      wants.xml { render :xml => @code.comments }
+    end
+  rescue ActiveRecord::RecordNotFound
+    respond_to do |wants|
+      wants.json { head :status => :not_found }
+      wants.xml { head :status => :not_found }
+    end
+  end
+  
   def create
     @code = Code.find params[:code_id]
     @comment = @code.build_comment params[:comment]
