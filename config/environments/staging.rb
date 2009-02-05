@@ -22,3 +22,5 @@ config.cache_store = :file_store, "#{RAILS_ROOT}/tmp/cache"
 
 # Disable delivery errors, bad email addresses will be ignored
 # config.action_mailer.raise_delivery_errors = false
+
+URL_ROOT = "http://isitruby19-staging.brightbox-008.vm.brightbox.net/"
