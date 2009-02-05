@@ -1,7 +1,6 @@
 class CodesController < ApplicationController
-  caches_page :show
-  
   def index
+    @page_title = "Community-powered gem compatibility for ruby 1.9"
     if params[:s].blank?
       @codes = Code.paginate(:per_page => 30, :page => params[:page], :include => [:working_comments, :failure_comments], :order => 'name')
     else
@@ -13,7 +12,8 @@ class CodesController < ApplicationController
   end
   
   def show
-    @code = Code.find_by_slug_name!(params[:slug_name])
+    @code = Code.find_by_slug_name!(params[:slug_name], :include => :comments)
+    @page_title = "#{@code.name} gem ruby 1.9 compatibility"
     @comment = Comment.new
 
   rescue ActiveRecord::RecordNotFound
