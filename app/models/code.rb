@@ -43,7 +43,7 @@ class Code < ActiveRecord::Base
       xml.permalink permalink
     end
   end
-  
+    
   def self.new_from_gem_spec(spec)
     f = find_or_initialize_by_name(spec.name.to_s)
     if f.new_record?
