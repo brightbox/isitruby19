@@ -11,7 +11,8 @@ class CodesController < ApplicationController
   def show
     @code = Code.find_by_slug_name!(params[:slug_name], :include => :comments)
     @page_title = "#{@code.name} gem ruby 1.9 compatibility"
-    @comment = Comment.new
+    @comment = Comment.new(:name => cookies[:comment_name], :email => cookies[:comment_email],
+                           :url => cookies[:comment_url])
 
   rescue ActiveRecord::RecordNotFound
     @codes = Code.find_with_ferret(["*", params[:slug_name], "*"].to_s)

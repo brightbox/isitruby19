@@ -7,6 +7,9 @@ class CommentsController < ApplicationController
     @comment.valid?
     raise ActiveRecord::RecordInvalid.new(@comment) unless validate_recap(params, @comment.errors, :rcc_pub => RECAPTCHA_PUBLIC_KEY, :rcc_priv => RECAPTCHA_PRIVATE_KEY)
     @comment.save!    
+    cookies[:comment_name] = @comment.name
+    cookies[:comment_email] = @comment.email
+    cookies[:comment_url] = @comment.url
     flash[:notice] = 'Thanks for your comment'
     redirect_to code_by_slug_path(@code.slug_name)
     
