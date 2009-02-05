@@ -4,7 +4,7 @@ class CodesController < ApplicationController
       if params[:s].blank?
         @codes = Code.paginate(:per_page => 30, :page => params[:page], :include => [:working_comments, :failure_comments], :order => 'name')
       else
-        @codes = Code.find_with_ferret(["*", params[:s], "*"].to_s, { :per_page => 30, :page => params[:page] }, { :include => [:working_comments, :failure_comments], :order => 'name' })
+        @codes = Code.find_with_ferret(params[:s].to_s, { :per_page => 30, :page => params[:page] }, { :include => [:working_comments, :failure_comments], :order => 'name' })
       end
       wants.html { 
         @page_title = "Community-powered gem compatibility for ruby 1.9"
