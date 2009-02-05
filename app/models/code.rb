@@ -12,6 +12,10 @@ class Code < ActiveRecord::Base
     self.slug_name
   end
   
+  def permalink
+    URL_ROOT + code_slug_name
+  end
+  
   def works?
     has_no_failure_comments? && has_working_comments?
   end
@@ -27,6 +31,21 @@ class Code < ActiveRecord::Base
   def description_or_summary
     return description unless description.blank?
     return summary
+  end
+  
+  def to_json(options = {})
+    default_only = ["name", "description", "summary", "homepage", "rubyforge"]
+    options[:only] = (options[:only] || []) + default_only
+    options[:methods] = :permalink
+    super(options)
+  end
+  
+  def to_xml(options = {})
+    default_only = ["name", "description", "summary", "homepage", "rubyforge"]
+    options[:only] = (options[:only] || []) + default_only
+    super(options)  do |xml|
+      xml.permalink permalink
+    end
   end
   
   def self.new_from_gem_spec(spec)

@@ -11,6 +11,10 @@ class Comment < ActiveRecord::Base
     self.works_for_me ||= true unless self.works_for_me == false
   end
   
+  def platform_name
+    platform.name if platform
+  end
+  
   def code_slug_name
     code.slug_name
   end
@@ -21,6 +25,20 @@ class Comment < ActiveRecord::Base
     else 
       return url
     end
+  end
+  
+  def to_json(options = {})
+    default_only = ["body", "name", "url", "works_for_me"]
+    options[:only] = (options[:only] || []) + default_only
+    options[:include] = {:platform => {:only => :name}}
+    super(options)
+  end
+  
+  def to_xml(options = {})
+    default_only = ["body", "name", "url", "works_for_me"]
+    options[:only] = (options[:only] || []) + default_only
+    options[:include] = {:platform => {:only => :name}}
+    super(options)
   end
   
 private
