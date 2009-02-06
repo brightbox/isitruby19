@@ -28,14 +28,14 @@ class Comment < ActiveRecord::Base
   end
   
   def to_json(options = {})
-    default_only = ["body", "name", "url", "works_for_me"]
+    default_only = ["body", "name", "url", "works_for_me", "version"]
     options[:only] = (options[:only] || []) + default_only
     options[:include] = {:platform => {:only => :name}}
     super(options)
   end
   
   def to_xml(options = {})
-    default_only = ["body", "name", "url", "works_for_me"]
+    default_only = ["body", "name", "url", "works_for_me", "version"]
     options[:only] = (options[:only] || []) + default_only
     options[:include] = {:platform => {:only => :name}}
     super(options)
