@@ -12,6 +12,10 @@ class Code < ActiveRecord::Base
     self.slug_name
   end
   
+  def code_name
+    self.name
+  end
+  
   def permalink
     URL_ROOT + code_slug_name
   end

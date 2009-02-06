@@ -4,7 +4,9 @@ class Comment < ActiveRecord::Base
   named_scope :latest, :order => 'created_at desc'
   named_scope :working, :conditions => { :works_for_me => true }
   named_scope :failed, :conditions => { :works_for_me => false }
-  delegate :slug_name, :to => :code
+  delegate :code_slug_name, :to => :code
+  delegate :code_name, :to => :code
+  delegate :permalink, :to => :code
 
   def initialize params = nil
     super
@@ -12,11 +14,14 @@ class Comment < ActiveRecord::Base
   end
   
   def platform_name
-    platform.name if platform
+    platform.nil? ? "" : platform.name
   end
   
-  def code_slug_name
-    code.slug_name
+  def description
+    verb = self.works_for_me ? 'works' : 'fails'
+    platform = self.platform_name.blank? ? '' : "on #{platform_name}"
+    
+    "#{code_name} #{verb} for #{name} #{platform}"
   end
   
   def fixed_url

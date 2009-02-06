@@ -1,6 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
 
   map.root :controller => "home", :action => "show"
+  map.rss '/rss', :controller => 'home', :action => 'rss'
   
   map.resources :codes, :shallow => true do |code|
     code.resources :comments

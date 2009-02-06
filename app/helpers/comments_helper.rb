@@ -16,6 +16,7 @@ module CommentsHelper
   end
 
   def format_comment comment
-    simple_format( auto_link( h(comment), :link => :urls) )
+    simple_format(auto_link(h(comment), :link => :urls))
   end
+  
 end
