@@ -11,6 +11,7 @@ class CodesController < ApplicationController
       }
       wants.json { render :json => @codes }
       wants.xml { render :xml => @codes }
+      wants.rss { render :xml => rss_for(@code.comments, :title => :code_name, :description => :description, :permalink => :permalink, :datetime => :updated_at) }
     end
   end
   

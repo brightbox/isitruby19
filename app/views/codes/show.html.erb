@@ -17,3 +17,7 @@
 <div id="new-comment-form">
   <%= render :partial => 'comments/new', :locals => { :code => @code } %>
 </div>
+
+<% content_for :alternative_rss_feed do %>
+  <link rel="alternate" href="<%= code_by_slug_with_format_path(@code.slug_name, :rss) %>" title="Latest comments about <%= h(@code.name) %>" type="application/rss+xml" /> 
+<% end %>
