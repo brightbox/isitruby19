@@ -10,7 +10,7 @@ class HomeController < ApplicationController
   
   def rss
     @comments = Comment.latest.all(:limit => 20, :include => [:code, :platform])
-    render :xml => rss_for(@comments, :feed_title => 'Ruby 1.9 gem compatibility', :feed_link => root_url, :feed_description => 'Latest comments about gem compatibility for ruby 1.9', :title => :code_name, :description => :description, :permalink => :permalink, :datetime => :updated_at)
+    render :xml => rss_for(@comments, :feed_title => 'Ruby 1.9 gem compatibility', :feed_link => root_url, :feed_description => 'Latest comments about gem compatibility for ruby 1.9', :title => :description, :description => :description, :permalink => :permalink, :datetime => :updated_at)
   end
   
 private
