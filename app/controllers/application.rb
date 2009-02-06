@@ -9,16 +9,16 @@ class ApplicationController < ActionController::Base
   
 protected
   # build an rss feed for the given collection
-  # mapping should be a Hash, mapping the RSS fields to method calls on the contained objects
+  # options should be a Hash, giving feed details and mapping the RSS fields to method calls on the contained objects
   # for example: 
-  #   rss_for @wotsits, :title => :title_method, :description => :description_method, :permalink => :permalink_method, :time => :datetime_method
+  #   rss_for @wotsits, :feed_title => 'My RSS', :feed_link => 'http://somewhere.com', :feed_description => 'stuff about stuff', :title => :title_method, :description => :description_method, :permalink => :permalink_method, :time => :datetime_method
   # the :time method should return a Time object, so the RSS mapper can call #to_s(:rfc822) on it
   # TODO: allow the passing of lambdas so you don't need to add a permalink (view) method to your models
   def rss_for objects, mapping
     RSS::Maker.make("2.0") do | rss | 
-      rss.channel.title = "isitruby1.9.com comments feed"
-      rss.channel.link = "http://isitruby1.9.com"
-      rss.channel.description = "The latest comments about gem-compatibility from isitruby1.9.com"
+      rss.channel.title = mapping[:feed_title]
+      rss.channel.link = mapping[:feed_link]
+      rss.channel.description = mapping[:feed_description]
       
       objects.each do | object |
         item = rss.items.new_item
