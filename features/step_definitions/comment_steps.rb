@@ -1,3 +1,9 @@
+Given /^a comment against "(.*)"$/ do | name | 
+  code = Code.find_by_name! name
+  comment = a_saved Comment, :code => code
+end
+
+
 Then /^I see the comment form$/ do
   response.should have_tag('div#new-comment-form')
 end
@@ -23,6 +29,11 @@ end
 Then /^I see the delete comment link$/ do
   response.should have_tag('a.delete-comment')
 end
+
+Then /^I do not see the delete comment link$/ do
+  response.should_not have_tag('a.delete-comment')
+end
+
 
 Then /^I do not see my comment on the page$/ do
   response.should_not include_text('Here is my test comment')

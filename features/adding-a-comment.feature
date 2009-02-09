@@ -27,3 +27,10 @@ Feature: adding a comment
     Then I do not see my comment on the page
   
   Scenario: viewing someone else's comment 
+    
+    Given an initialised database
+    And a gem called "rubynuts"
+    And a comment against "rubynuts"
+    
+    When I visit the page for "rubynuts"
+    Then I do not see the delete comment link

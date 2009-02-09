@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   filter_parameter_logging :password
   layout 'isitruby19'
   include ReCaptcha::AppHelper
+  helper_method :my_comments
   
 protected
   # build an rss feed for the given collection
@@ -29,4 +30,11 @@ protected
       end
     end.to_s
   end
+
+  # uses the session to store which comments I created  
+  def my_comments
+    session[:my_comments] ||= []
+  end
+
+
 end

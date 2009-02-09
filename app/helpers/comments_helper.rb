@@ -8,7 +8,9 @@ module CommentsHelper
   end
   
   def delete_link_for comment
-    link_to "DELETE", comment_path(comment), :method => :delete, :class => 'delete-comment' unless comment.new_record?
+    return nil if comment.new_record?
+    return nil unless my_comments.include?(comment.id)
+    link_to "DELETE", comment_path(comment), :method => :delete, :class => 'delete-comment', :confirm => 'Are you sure?'
   end
   
   def opinion_for comment

@@ -57,10 +57,6 @@ class CommentsController < ApplicationController
   end
 
 private
-  def my_comments
-    session[:my_comments] ||= []
-  end
-
   def captcha_is_valid_for comment, options 
     return true if ENV['RAILS_ENV'] == 'test' # captcha is always valid in test mode
     return validate_recap(options[:with], comment.errors, :rcc_pub => RECAPTCHA_PUBLIC_KEY, :rcc_priv => RECAPTCHA_PRIVATE_KEY)  
