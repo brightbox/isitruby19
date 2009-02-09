@@ -3,7 +3,10 @@ class Author < ActiveRecord::Base
   has_many :authorships
   has_many :codes, :through => :authorships
   
+  after_create :update_slug_name
+  
   def permalink
+    return "#" if self.slug_name.blank?
     URL_ROOT + "authors/" + self.slug_name
   end
   
