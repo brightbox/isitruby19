@@ -1,5 +1,5 @@
 <div class="comment rounded">
-  <%= gravatar_for comment %>
+  <%= gravatar_for comment %> 
   <p class="status">
 	<%= link_to h(comment.code.slug_name), code_by_slug_path(comment.code.slug_name), :class => 'gem' %>
 	<%= "(#{comment.version})" unless comment.version.blank? %>
@@ -7,4 +7,5 @@
 	for <%= name_link_for comment %> <span class="lighterblue">(<%= comment.platform %>)</span><br />
 	</p>
   <%= "<blockquote>#{format_comment(comment.body)}</blockquote>" if local_assigns[:show_quote] && !comment.body.blank? %>
+  <p><%= delete_link_for comment %></p>
 </div>

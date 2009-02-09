@@ -7,6 +7,10 @@ module CommentsHelper
     end
   end
   
+  def delete_link_for comment
+    link_to "DELETE", comment_path(comment), :method => :delete, :class => 'delete-comment' unless comment.new_record?
+  end
+  
   def opinion_for comment
     if comment.works_for_me?
       "<span class=\"works\">Working</span>"

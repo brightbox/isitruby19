@@ -300,7 +300,6 @@ dd {
 #new-comment-form label {
 	font-size: 11px;
 	line-height: 130%;
-	
 }
 
 
@@ -313,4 +312,14 @@ dd {
 
 #new-comment-form .text_field {
 width: 250px;	
+}
+
+a.delete-comment {
+  background: url(/images/misc/recreate.gif) no-repeat;
+  padding: 2px 4px 4px 18px;
+  font-size: 8pt;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+	color: #95ABC3;
 }
