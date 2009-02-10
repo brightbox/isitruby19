@@ -1,9 +1,9 @@
-<% cache do %>
-  <div id="left" class="column">
-    <h2>Latest Feedback</h2>
-    <%= render :partial => 'comments/comment', :collection => @latest_feedback %>
-  </div>
+<div id="left" class="column">
+  <h2>Latest Feedback</h2>
+  <%= render :partial => 'comments/comment', :collection => @latest_feedback %>
+</div>
 
+<% cache do %>
   <div id="middle" class="column">
     <h2>Popular gems <span class="lighterblue">(most comments)</span></h2>
     <ul>
