@@ -7,5 +7,5 @@
 	for <%= name_link_for comment %> <span class="lighterblue">(<%= comment.platform %>)</span><br />
 	</p>
   <%= "<blockquote>#{format_comment(comment.body)}</blockquote>" if local_assigns[:show_quote] && !comment.body.blank? %>
-  <p><%= delete_link_for comment %></p>
+  <%= "<p>#{delete_link_for comment}</p>" if local_assigns[:show_quote] %>
 </div>
