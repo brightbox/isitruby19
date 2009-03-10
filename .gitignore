@@ -1,4 +1,3 @@
-db/database.yml
 log/*
 db/*.sqlite3
 index
