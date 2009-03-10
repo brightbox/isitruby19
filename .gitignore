@@ -6,7 +6,3 @@ index
 tmp/pids
 tmp/sessions
 tmp/sockets
-config/database.yml
-config/exceptional.yml
-config/deploy.rb
-config/deploy/*
