@@ -331,3 +331,8 @@ a.delete-comment {
   text-decoration: none;
 	color: #95ABC3;
 }
+
+#footer a.subdued {
+  color: #345983;
+}
+
